@@ -22,24 +22,22 @@ export default function Home() {
 
   useEffect(() => {
     setIsMounted(true);
+    getProducts();
   }, []);
 
   if (!isMounted) {
     return null;
   } else {
-    getProducts();
   }
 
   async function getProducts() {
     try {
-      let res = await axios.get("https://fakestoreapi.com/products", {
-        headers: corsHeaders,
-      });
+      let res = await axios.get("https://fakestoreapi.com/products");
       setProductData(res.data);
-      setLoading(false);
     } catch (error) {
       console.log(error);
     } finally {
+      setLoading(false);
     }
   }
 
