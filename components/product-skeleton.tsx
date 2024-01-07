@@ -1,15 +1,10 @@
 "use client";
 
+// * Global Imports
+import { ShoppingCart } from "lucide-react";
+
 // * Local Imports
-import { Product } from "@/types";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-import IconButton from "./ui/icon-button";
-import { Expand, ShoppingCart } from "lucide-react";
-import Currency from "./ui/currency";
-import { Button } from "./ui/button";
-import { MouseEventHandler } from "react";
-import { Skeleton } from "./ui/skeleton";
+import { Skeleton } from "@/components/ui/skeleton";
 
 export const ProductSkeleton = () => {
   return (

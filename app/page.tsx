@@ -3,7 +3,11 @@
 // * Global Imports
 import { useState, useEffect } from "react";
 import axios from "axios";
+
+// * Types
 import { Product } from "@/types";
+
+// * Local Imports
 import { ProductCard } from "@/components/product-card";
 import { Header } from "@/components/header";
 import { ProductSkeleton } from "@/components/product-skeleton";
@@ -12,13 +16,6 @@ export default function Home() {
   const [isMounted, setIsMounted] = useState(false);
   const [productData, setProductData] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
-  let [products, setProducts] = useState<React.ReactNode>();
-
-  const corsHeaders = {
-    "Access-Control-Allow-Origin": "*",
-    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
-    "Access-Control-Allow-Headers": "Content-Type, Authorization",
-  };
 
   useEffect(() => {
     setIsMounted(true);

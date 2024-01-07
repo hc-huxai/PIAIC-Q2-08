@@ -1,28 +1,15 @@
 "use client";
 
+// * Global Imports
+import Image from "next/image";
+import { ShoppingCart } from "lucide-react";
+
 // * Local Imports
 import { Product } from "@/types";
-import Image from "next/image";
-import { useRouter } from "next/navigation";
-import IconButton from "./ui/icon-button";
-import { Expand, ShoppingCart } from "lucide-react";
 import Currency from "./ui/currency";
 import { Button } from "./ui/button";
-import { MouseEventHandler } from "react";
 
 export const ProductCard = ({ product }: { product: Product }) => {
-  const router = useRouter();
-
-  const handleClick = () => {
-    router.push(`/product/${product.id}`);
-  };
-
-  const onPreview = () => {};
-
-  const onAddToCart: MouseEventHandler<HTMLButtonElement> = (event) => {
-    event.stopPropagation();
-  };
-
   const formatStr = (str: string) => {
     return str
       .split(" ")
@@ -31,10 +18,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
   };
 
   return (
-    <div
-      onClick={handleClick}
-      className="bg-white group cursor-pointer rounded-xl border p-3 space-y-4 flex flex-col justify-between hover:bg-gray-100 transition-all"
-    >
+    <div className="bg-white group rounded-xl border p-3 space-y-4 flex flex-col justify-between hover:bg-gray-100 transition-all">
       {/* Images and Actions */}
       <div className="aspect-square bg-white rounded-xl relative">
         <Image
@@ -54,7 +38,7 @@ export const ProductCard = ({ product }: { product: Product }) => {
       {/* Price */}
       <div className="flex items-center justify-between">
         <Currency value={product.price} />{" "}
-        <Button variant={"default"} size={"icon"} onClick={onAddToCart}>
+        <Button variant={"default"} size={"icon"}>
           <ShoppingCart size={20} />
         </Button>
       </div>

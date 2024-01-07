@@ -1,12 +1,12 @@
 // * Global Imports
 import Image from "next/image";
+import { ShoppingCart } from "lucide-react";
+import Link from "next/link";
 
 // * Local Imports
 import logo from "@/assets/img/logo.png";
-import Link from "next/link";
 import { cn } from "@/lib/utils";
-import { Button } from "./ui/button";
-import { ShoppingCart } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export const Header = ({ className }: { className?: string }) => {
   return (
