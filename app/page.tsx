@@ -14,6 +14,12 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   let [products, setProducts] = useState<React.ReactNode>();
 
+  const corsHeaders = {
+    "Access-Control-Allow-Origin": "*",
+    "Access-Control-Allow-Methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "Access-Control-Allow-Headers": "Content-Type, Authorization",
+  };
+
   useEffect(() => {
     setIsMounted(true);
   }, []);
@@ -26,7 +32,9 @@ export default function Home() {
 
   async function getProducts() {
     try {
-      let res = await axios.get("https://fakestoreapi.com/products");
+      let res = await axios.get("https://fakestoreapi.com/products", {
+        headers: corsHeaders,
+      });
       setProductData(res.data);
       setLoading(false);
     } catch (error) {
